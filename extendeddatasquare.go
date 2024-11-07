@@ -28,6 +28,13 @@ func (eds *ExtendedDataSquare) MarshalJSON() ([]byte, error) {
 	})
 }
 
+func (eds *ExtendedDataSquare) EmptyEDS() {
+	eds.colRoots = nil
+	eds.rowRoots = nil
+	eds.squareCol = nil
+	eds.squareRow = nil
+}
+
 func (eds *ExtendedDataSquare) UnmarshalJSON(b []byte) error {
 	var aux struct {
 		DataSquare [][]byte `json:"data_square"`
